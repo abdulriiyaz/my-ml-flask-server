@@ -1,13 +1,14 @@
 from flask import Flask
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def hello_world():
-#send a json response with hello_worlds
-   return 'hey'
+   data = ('a','b','c','d')
+   return json.dumps(data)
 
 if __name__ == '__main__':
    app.run(debug=True)
